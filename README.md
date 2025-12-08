@@ -69,16 +69,16 @@ Integration tests included:
 ## Testing and Evaluation
 
 ### Testing
-Testing covered unit tests, RTOS synchronization (Mutex/Queue), full integration, and end-to-end system validation.
+Testing covered unit tests, RTOS synchronization (Mutex/Queue), full integration, and end-to-end system validation. The table below details the acceptance criteria activities tested.
 
-| Activity (Criteria) | Results Target | Passed? |
+| Activity | Results | Passed? |
 | :--- | :--- | :--- |
-| **1. Noise & Vibration Accuracy** | Average reading deviation from SLM must be $< 10\%$. Refresh Rate: $1$ reading/minute/node. | V |
-| **2. Mesh Network Reliability** | Packet Loss Rate (PLR) at the Gateway must be $< 5\%$. | V |
-| **3. State Persistence (RTC Memory)** | Node must immediately resume "Active Work Mode" (OLED ON) without an external command, confirming state persistence. | V |
-| **6. Remote Network Control** | All End Nodes must receive the command, update their state, and successfully enter Deep Sleep. | V |
-| **7. Deep Sleep Power Management** | Current consumption reduction in "Silent Check Mode" must achieve at least $\mathbf{80\%}$. | V |
-| **4. Real-Time Visualization** | The Node-RED Heatmap must update the visual status (color change) within $<\mathbf{30}$ seconds of data reception at the Gateway. | V |
+| **Noise & Vibration Accuracy** | Average reading deviation from SLM must be $< 10\%$. Refresh Rate: $1$ reading/minute/node. | V |
+| **Mesh Network Reliability** | Packet Loss Rate (PLR) at the Gateway must be $< 5\%$. | V |
+| **State Persistence (RTC Memory)** | Node must immediately resume "Active Work Mode" (OLED ON) without an external command, confirming state persistence. | V |
+| **Remote Network Control** | All End Nodes must receive the command, update their state, and successfully enter Deep Sleep. | V |
+| **Deep Sleep Power Management** | Current consumption reduction in "Silent Check Mode" must achieve **at least $80\%$**. | V |
+| **Real-Time Visualization** | The Node-RED Heatmap must update the visual status (color change) within **$<30$ seconds** of data reception at the Gateway. | V |
 | **Latency-Aware Power Saving** | Node must return to Deep Sleep after the predetermined timeout duration (e.g., $5$-$10$ seconds). | V |
 
 ### Results
@@ -87,9 +87,9 @@ Testing covered unit tests, RTOS synchronization (Mutex/Queue), full integration
 - Heatmap screenshots (Blue = Low, Green = Medium, Red = High)
 
 ### Evaluation
-- **Success:** $\sim 2\%$ packet loss (better than $<5\%$ target), dual-core workload separation successful
-- **Limitations:** Deep Sleep reduction reached $\sim 75\%$ (target $80\%$), limited by regulator hardware
-- **Future Work:** faster Mesh convergence, improved power management IC
+- **Success:** **Mesh Network Reliability** was proven with an actual packet loss of $\sim 2\%$ (better than $<5\%$ target). **Dual-core workload separation** was successful. **State Persistence** and **Remote Control** operated correctly.
+- **Limitations:** **Deep Sleep Power Management** only reached $\sim 75\%$ reduction (short of the $80\%$ target), limited by the regulator hardware choice.
+- **Future Work:** Faster Mesh convergence, improved power management IC.
 
 ***
 
